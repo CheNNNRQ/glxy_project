@@ -21,6 +21,6 @@ public class EduLoginController {
     //info
     @GetMapping("/info")
     public R info(){
-        return R.ok().data("roles","admin").data("name","diodi").data("avatar","https://diodi-college.oss-cn-beijing.aliyuncs.com/2021/08/05/c8121e46cd2c41dc9ee10781236c8d7e1F875832E0096EEA8D184A139F74EAF8.jpg");
+        return R.ok().data("roles","admin").data("name","diodi").data("avatar","https://diodi-college.oss-cn-beijing.aliyuncs.com/2021/08/06/e2c52039d4144bfdb90af5a425e3e0636.gif");
     }
 }
