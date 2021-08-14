@@ -1,6 +1,7 @@
 package com.diodi.eduService.controller;
 
 import com.diodi.commonutils.R;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
  * @author diodi
  * @create 2021-08-03-21:46
  */
+@Api(tags = "登录")
 @RestController
 @CrossOrigin
 @RequestMapping("/eduService/user")
