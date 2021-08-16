@@ -1,11 +1,14 @@
 package com.diodi.eduService.controller;
 
 import com.diodi.commonutils.R;
+import com.diodi.eduService.client.VodClient;
 import com.diodi.eduService.entity.EduVideo;
 import com.diodi.eduService.service.EduVideoService;
+import com.diodi.servicebase.exceptionhandler.GuliException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -22,6 +25,9 @@ import org.springframework.web.bind.annotation.*;
 public class EduVideoController {
     @Autowired
     EduVideoService videoService;
+
+    @Autowired
+    VodClient vodClient;
 
     /**
      * 添加小节
@@ -44,7 +50,7 @@ public class EduVideoController {
     @GetMapping("getVideoById/{id}")
     public R getVideoById(@PathVariable String id) {
         EduVideo byId = videoService.getById(id);
-        return R.ok().data("video",byId);
+        return R.ok().data("video", byId);
     }
 
     /**
@@ -59,7 +65,7 @@ public class EduVideoController {
         return R.ok();
     }
 
-    // TODO 后面这个方法需要完善，删除小节的时候，同时也要把视频删除
+
     /**
      * 删除小节
      * @param id id
@@ -68,8 +74,20 @@ public class EduVideoController {
     @ApiOperation("删除小节")
     @DeleteMapping("deleteVideo/{id}")
     public R deleteVideo(@PathVariable String id) {
+        //根据小节id获取视频id,调用方法实现视频删除
+        EduVideo byId = videoService.getById(id);
+        String videoSourceId = byId.getVideoSourceId();
+        //根据视频ID远程调用微服务实现视频删除
+        if (!StringUtils.isEmpty(videoSourceId)) {
+            R r = vodClient.removeAlyVideo(videoSourceId);
+            if (r.getCode()==20001) {
+                throw new GuliException(20001,"删除视频失败熔断");
+            }
+        }
+        //注意顺序 是先删视频 再删小节
         videoService.removeById(id);
         return R.ok();
     }
+
 }
 

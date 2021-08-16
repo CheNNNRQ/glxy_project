@@ -1,5 +1,6 @@
 package com.diodi.eduService.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.diodi.eduService.entity.EduCourse;
 import com.diodi.eduService.entity.EduCourseDescription;
@@ -13,7 +14,10 @@ import com.diodi.eduService.service.EduVideoService;
 import com.diodi.servicebase.exceptionhandler.GuliException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -128,6 +132,19 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         if (i < 1) {
             throw new GuliException(20001, "删除失败");
         }
+    }
+
+    /**
+     * 查询学习人数最多的8个课程
+     */
+    @Override
+    @Cacheable(value = "index" , key = "'courseList'")
+    public List<EduCourse> getIndexCourseList() {
+        QueryWrapper<EduCourse> eduCourseQueryWrapper = new QueryWrapper<>();
+        eduCourseQueryWrapper.orderByDesc("view_count");
+        eduCourseQueryWrapper.last("limit 8");
+        List<EduCourse> eduCourses = baseMapper.selectList(eduCourseQueryWrapper);
+        return eduCourses;
     }
 }
 

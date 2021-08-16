@@ -1,9 +1,11 @@
 package com.diodi.eduService.service;
 
-import com.diodi.eduService.entity.EduCourse;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.diodi.eduService.entity.EduCourse;
 import com.diodi.eduService.entity.vo.CourseInfoVo;
 import com.diodi.eduService.entity.vo.CoursePublishVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -48,4 +50,10 @@ public interface EduCourseService extends IService<EduCourse> {
      * @param courseId 课程ID
      */
     void removeCourse(String courseId);
+
+    /**
+     * 查询学习人数最多的8个课程
+     * @return
+     */
+    List<EduCourse> getIndexCourseList();
 }
