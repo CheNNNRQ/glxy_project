@@ -30,7 +30,6 @@ public class IndexFrontController {
     @Autowired
     EduTeacherService teacherService;
 
-    //TODO 这里加下缓存 分开
 
     @GetMapping("index")
     public R index() {
