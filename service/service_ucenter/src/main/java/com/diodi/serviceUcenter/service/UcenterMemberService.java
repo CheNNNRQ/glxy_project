@@ -27,4 +27,11 @@ public interface UcenterMemberService extends IService<UcenterMember> {
      * @return
      */
     void register(RegisterVo registerVo);
+
+    /**
+     * 判断数据库是否存在相同的微信内容
+     * @param openid
+     * @return
+     */
+    UcenterMember getMemberByOpenId(String openid);
 }

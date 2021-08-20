@@ -26,6 +26,20 @@ import org.springframework.util.StringUtils;
 public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, UcenterMember> implements UcenterMemberService {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
+
+    /**
+     * 判断数据库是否存在相同的微信内容
+     * @param openid
+     * @return
+     */
+    @Override
+    public UcenterMember getMemberByOpenId(String openid) {
+        QueryWrapper<UcenterMember> wrapper = new QueryWrapper<>();
+        wrapper.eq("openid", openid);
+        UcenterMember ucenterMember = baseMapper.selectOne(wrapper);
+        return ucenterMember;
+    }
+
     /**
      * 用户注册
      * @param registerVo 用户对象
