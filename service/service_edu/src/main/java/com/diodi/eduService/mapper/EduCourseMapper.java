@@ -2,6 +2,7 @@ package com.diodi.eduService.mapper;
 
 import com.diodi.eduService.entity.EduCourse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.diodi.eduService.entity.frontVo.CourseWebVo;
 import com.diodi.eduService.entity.vo.CoursePublishVo;
 
 /**
@@ -20,4 +21,11 @@ public interface EduCourseMapper extends BaseMapper<EduCourse> {
      * @return 包含信息的Vo类
      */
     public CoursePublishVo getPublishCourseInfo(String courseId);
+
+    /**
+     * 根据课程id 编写sql语句查询课程信息
+     * @param courseId
+     * @return
+     */
+    CourseWebVo getBaseCourseInfo(String courseId);
 }

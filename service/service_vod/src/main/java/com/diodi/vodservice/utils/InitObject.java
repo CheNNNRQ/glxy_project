@@ -5,6 +5,7 @@ import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.profile.DefaultProfile;
 
 /**
+ * 初始化对象
  * @author diodi
  * @create 2021-08-14-14:38
  */

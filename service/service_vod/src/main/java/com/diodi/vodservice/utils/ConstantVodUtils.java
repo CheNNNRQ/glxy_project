@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
+ * 获取accessKeyId和accessKeySecret
  * @author diodi
  * @create 2021-08-13-21:18
  */

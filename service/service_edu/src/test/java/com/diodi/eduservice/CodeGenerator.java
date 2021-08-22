@@ -63,7 +63,7 @@ public class CodeGenerator {
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
         //根据表的名称 逆向生成  可以多张表
-        strategy.setInclude("edu_course","edu_course_description","edu_video","edu_chapter");
+        strategy.setInclude("edu_comment");
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
 

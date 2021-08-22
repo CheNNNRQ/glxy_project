@@ -1,11 +1,15 @@
 package com.diodi.eduService.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.diodi.eduService.entity.EduCourse;
+import com.diodi.eduService.entity.frontVo.CourseFrontVo;
+import com.diodi.eduService.entity.frontVo.CourseWebVo;
 import com.diodi.eduService.entity.vo.CourseInfoVo;
 import com.diodi.eduService.entity.vo.CoursePublishVo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -56,4 +60,20 @@ public interface EduCourseService extends IService<EduCourse> {
      * @return
      */
     List<EduCourse> getIndexCourseList();
+
+    /**
+     * 条件查询分页
+     * @param eduCoursePage 分页对象
+     * @param courseFrontVo 前台查询的条件
+     * @return 对应条件的课程map
+     */
+    Map<String, Object> getCourseFrontList(Page<EduCourse> eduCoursePage,
+                                           CourseFrontVo courseFrontVo);
+
+    /**
+     * 根据课程id 编写sql语句查询课程信息
+     * @param courseId
+     * @return
+     */
+    CourseWebVo getBaseCourseInfo(String courseId);
 }
