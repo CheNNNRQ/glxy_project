@@ -2,11 +2,13 @@ package com.diodi.serviceUcenter.controller;
 
 import com.diodi.commonutils.JwtUtils;
 import com.diodi.commonutils.R;
+import com.diodi.commonutils.UcenterMemberVo;
 import com.diodi.serviceUcenter.entity.UcenterMember;
 import com.diodi.serviceUcenter.service.UcenterMemberService;
 import com.diodi.serviceUcenter.vo.RegisterVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -65,6 +67,19 @@ public class UcenterMemberController {
         String id = JwtUtils.getMemberIdByJwtToken(request);
         UcenterMember member = memberService.getById(id);
         return R.ok().data("userInfo", member);
+    }
+
+    /**
+     * 根据用户id查询信息 封装到UcenterMemberVo给远程调用类使用
+     * @param memberId 用户id
+     * @return
+     */
+    @PostMapping("/getMemberInfoById/{memberId}")
+    public UcenterMemberVo getMemberInfoById(@PathVariable String memberId){
+        UcenterMember byId = memberService.getById(memberId);
+        UcenterMemberVo ucenterMemberVo = new UcenterMemberVo();
+        BeanUtils.copyProperties(byId, ucenterMemberVo);
+        return ucenterMemberVo;
     }
 }
 
