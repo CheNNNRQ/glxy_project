@@ -81,5 +81,18 @@ public class UcenterMemberController {
         BeanUtils.copyProperties(byId, ucenterMemberVo);
         return ucenterMemberVo;
     }
+
+    /**
+     * <p>查询某一天的注册人数</p>
+     * <p>用于给statistics_daily远程调用使用</p>
+     * <p>编写sql查询</p>
+     * @param day 日期
+     * @return 某一天的注册人数
+     */
+    @GetMapping("countRegister/{day}")
+    public R countRegister(@PathVariable String day){
+        Integer count = memberService.countRegisterDay(day);
+        return R.ok().data("countRegister", count);
+    }
 }
 

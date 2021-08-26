@@ -34,4 +34,12 @@ public interface UcenterMemberService extends IService<UcenterMember> {
      * @return
      */
     UcenterMember getMemberByOpenId(String openid);
+
+    /**
+     * 远程调用
+     * 查询某一天的注册人数
+     * @param day
+     * @return
+     */
+    Integer countRegisterDay(String day);
 }
