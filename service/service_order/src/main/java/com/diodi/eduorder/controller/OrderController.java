@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
  * @since 2021-08-23
  */
 @RestController
-@CrossOrigin
 @RequestMapping("/eduorder/order")
 public class OrderController {
     @Autowired

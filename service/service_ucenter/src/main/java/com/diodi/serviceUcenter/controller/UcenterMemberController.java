@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @Api(tags = "用户登录和注册")
-@CrossOrigin
 @RequestMapping("/serviceUcenter/member")
 public class UcenterMemberController {
 

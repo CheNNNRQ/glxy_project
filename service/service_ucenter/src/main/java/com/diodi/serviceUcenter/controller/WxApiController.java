@@ -9,7 +9,6 @@ import com.diodi.servicebase.exceptionhandler.GuliException;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +20,6 @@ import java.util.HashMap;
  * @author diodi
  * @create 2021-08-20-12:43
  */
-@CrossOrigin
 @Controller //只是请求地址 不需要返回数据
 @RequestMapping("/api/ucenter/wx")
 public class WxApiController {

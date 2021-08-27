@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
  * @create 2021-08-17-14:44
  */
 @RestController
-@CrossOrigin
 @RequestMapping("/api/msm")
 public class MsmController {
     @Autowired

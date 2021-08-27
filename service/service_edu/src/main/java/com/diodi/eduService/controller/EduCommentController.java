@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletRequest;
  * @author diodi
  * @since 2021-08-22
  */
-@CrossOrigin
 @Api(tags = "课程评论")
 @RestController
 @RequestMapping("/eduService/comment")

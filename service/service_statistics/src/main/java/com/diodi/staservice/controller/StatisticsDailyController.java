@@ -19,7 +19,6 @@ import java.util.Map;
  */
 @Api(tags = "网站统计日数据")
 @RestController
-@CrossOrigin
 @RequestMapping("/staservice/sta")
 public class StatisticsDailyController {
     @Autowired

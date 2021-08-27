@@ -20,7 +20,6 @@ import java.util.List;
  */
 @Api(tags = "课程大纲列表功能")
 @RestController
-@CrossOrigin
 @RequestMapping("/eduService/chapter")
 public class EduChapterController {
     @Autowired

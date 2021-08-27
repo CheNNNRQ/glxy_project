@@ -20,7 +20,6 @@ import java.util.List;
  */
 @Api(tags = "管理员使用的banner接口")
 @RestController
-@CrossOrigin
 @RequestMapping("/educms/bannerAdmin")
 public class BannerAdminController {
     @Autowired

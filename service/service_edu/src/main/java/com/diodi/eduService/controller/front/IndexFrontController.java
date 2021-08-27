@@ -7,7 +7,6 @@ import com.diodi.eduService.service.EduCourseService;
 import com.diodi.eduService.service.EduTeacherService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +21,6 @@ import java.util.List;
  */
 @Api(tags = "查询热门课程和名师的接口")
 @RestController
-@CrossOrigin
 @RequestMapping("eduService/indexFront")
 public class IndexFrontController {
     @Autowired

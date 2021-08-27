@@ -30,7 +30,6 @@ import java.util.Map;
  */
 @Api(tags = "课程前台功能")
 @RestController
-@CrossOrigin
 @RequestMapping("eduService/courseFront")
 public class CourseFrontController {
     @Autowired
