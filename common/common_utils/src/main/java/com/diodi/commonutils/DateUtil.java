@@ -1,15 +1,8 @@
 package com.diodi.commonutils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 日期操作工具类
@@ -46,8 +39,8 @@ public class DateUtil {
         return now.getTime();
     }
 
-    public static void main(String[] args) {
-        System.out.println(DateUtil.formatDate(new Date()));
-        System.out.println(DateUtil.formatDate(DateUtil.addDays(new Date(), -1)));
-    }
+//    public static void main(String[] args) {
+//        System.out.println(DateUtil.formatDate(new Date()));
+//        System.out.println(DateUtil.formatDate(DateUtil.addDays(new Date(), -1)));
+//    }
 }

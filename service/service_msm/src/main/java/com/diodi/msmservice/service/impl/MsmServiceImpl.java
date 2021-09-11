@@ -14,6 +14,7 @@ import org.springframework.util.StringUtils;
  */
 @Service
 public class MsmServiceImpl implements MsmService {
+    //这个位置报错因为我把配置文件放到nacos中了 里面包含邮箱的配置
     @Autowired
     JavaMailSenderImpl mailSender;
 
